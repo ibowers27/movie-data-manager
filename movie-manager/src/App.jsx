@@ -32,6 +32,7 @@ const App = () => {
   return (
     <>
       <h1>Mini Project 04</h1>
+      <button class="btn">Button</button>
       {isLoading && <h1 className="text-7xl">Loading data ... please wait</h1>}
       {!isLoading && data && (
         <ul className="m-10 p-3">
