@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import Header from "./components/header";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -8,9 +9,7 @@ const App = () => {
 
   async function fetchData() {
     try {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/users",
-      );
+      const response = await fetch("https://jsonplaceholder.typicode.com/users");
       if (!response.ok) throw new Error("failed to fetch");
       const myData = await response.json();
       setData(myData);
@@ -31,18 +30,21 @@ const App = () => {
 
   return (
     <>
-      <h1>Mini Project 04</h1>
-      <button class="btn">Button</button>
-      {isLoading && <h1 className="text-7xl">Loading data ... please wait</h1>}
-      {!isLoading && data && (
-        <ul className="m-10 p-3">
-          {data.map((d, index) => (
-            <li key={index} className="text-3xl">
-              {d.name}
-            </li>
-          ))}
-        </ul>
-      )}
+      <Header />
+      <main className="pt-20">
+        <h1>Mini Project 04</h1>
+        <button className="btn">Button</button>
+        {isLoading && <h1 className="text-7xl">Loading data ... please wait</h1>}
+        {!isLoading && data && (
+          <ul className="m-10 p-3">
+            {data.map((d, index) => (
+              <li key={index} className="text-3xl">
+                {d.name}
+              </li>
+            ))}
+          </ul>
+        )}
+      </main>
     </>
   );
 };
