@@ -5,6 +5,7 @@ export const validateLogin = (username, password) => {
     return { Login: true, message: "Login successful" };
   }
 
+  // check if both username and password are met
   if (!username || !password) {
     return { Login: false, message: "Please enter a valid username and password." };
   }
@@ -17,10 +18,6 @@ export const validateLogin = (username, password) => {
     return { Login: false, message: "Password must be at least 5 characters." };
   }
 
-  // demo special-case welcome
-  if (username === "thien" && password === "ong12") {
-    return { Login: true, message: "Hi Thien." };
-  }
 
   return { Login: true, message: "Login successful." };
 };

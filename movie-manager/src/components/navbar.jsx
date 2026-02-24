@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import Authenticator from "./Authenticator.jsx";
+import Authenticator from "./authenticator.jsx";
 
 export default function Navbar({ showWanted, onToggle }) {
   return (
+    // used daisy circle button and styling for logo
     <div className="navbar bg-base-100 shadow-sm flex items-center px-4 py-2 border border-gray-300 rounded-lg">
       {/* Logo */}
       <div className="flex-none flex items-center mr-4">

@@ -1,5 +1,8 @@
 import React from "react";
 
+// actual list to hold items for wanted and liked movies.
+//this will be used to hold the json file data.
+
 export function WantedList({ movies = [] }) {
   return (
     <section className="mb-6">

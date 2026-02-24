@@ -44,7 +44,7 @@ function LikedList({ movies, removeMovie }) {
   );
 }
 
-
+// swap list manager
 export default function DisplayManager({ showWanted }) {
   const [wantedMovies, setWantedMovies] = useState([]);
   const [likedMovies, setLikedMovies] = useState([]);
@@ -55,6 +55,7 @@ export default function DisplayManager({ showWanted }) {
   const handleRemoveLiked = (idx) => setLikedMovies(likedMovies.filter((_, i) => i !== idx));
 
   return (
+    // wanted list
     <div className="w-80 flex flex-col gap-6" style={{ position: 'absolute', top: '2rem', right: -700 }}>
       {showWanted ? (
         <>
@@ -63,8 +64,9 @@ export default function DisplayManager({ showWanted }) {
           </button>
           <WantedList movies={wantedMovies} removeMovie={handleRemoveWanted} />
         </>
-      ) : (
+      ) : ( //like list
         <>
+        
           <button className="mb-2 px-3 py-1 bg-green-500 text-white rounded" onClick={handleAddLiked}>
             Add like Movie placeholder
           </button>

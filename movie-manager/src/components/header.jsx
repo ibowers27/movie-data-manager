@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./navbar";
 
+// header wrap for the navbar and background boarder
 const Header = ({ showWanted, onToggle }) => {
   return (
     <header className="site-navbar bg-orange-600 shadow-sm">
