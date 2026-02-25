@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/header";
+import Footer from "./components/footer";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -45,6 +46,7 @@ const App = () => {
           </ul>
         )}
       </main>
+      <Footer />
     </>
   );
 };
