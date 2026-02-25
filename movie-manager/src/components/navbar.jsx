@@ -1,37 +1,50 @@
-import React, { useState } from "react";
-import Authenticator from "./authenticator.jsx";
+import React from "react";
+import { FaThumbsUp, FaHeart } from "react-icons/fa";
+import Authenticator from "./Authenticator.jsx";
 
-export default function Navbar({ showWanted, onToggle }) {
+export default function Navbar({ sidebarView, onSidebarToggle }) {
   return (
-    // used daisy circle button and styling for logo
-    <div className="navbar bg-base-100 shadow-sm flex items-center px-4 py-2 border border-gray-300 rounded-lg">
-      {/* Logo */}
+    <div className="navbar bg-base-100 shadow-sm rounded-lg">
+      {/* Logo and title */}
       <div className="flex-none flex items-center mr-4">
-        <div className="btn btn-circle h-16 w-16 flex items-center justify-center">
+        <div className="btn btn-circle btn-ghost h-16 w-16 flex items-center justify-center">
           <img
             src="/movie-manager-icon.png"
             alt="Logo"
             className="h-11 w-11 object-contain"
           />
         </div>
-        <span className="text-xl ml-2 font-semibold">
-          Movie Manager
+        {/* text-[#be9859] = gold, font-['Abril_Fatface',serif] = display font */}
+        <span className="text-4xl ml-2 font-semibold font-['Abril_Fatface',serif] text-[#be9859]">
+          Golden Reel
         </span>
       </div>
+
+      {/* Spacer */}
       <div className="flex-1" />
-      {/* Swap toggle */}
-      <label className="swap border border-gray-300 rounded-lg px-3 py-1 mr-4">
-        <input
-          type="checkbox"
-          checked={showWanted}
-          onChange={onToggle}
-        />
-        <div className="swap-on">View your liked videos </div>
-        <div className="swap-off">Display your wanted List</div>
-      </label>
-      {/* username password and log in with google */}
+
+      {/* Watchlist button — bg-[#be9859] (gold) when active, btn-ghost when inactive */}
+      <button
+        className={`btn mr-2 gap-2 ${
+          sidebarView === "watchlist" ? "bg-[#be9859] text-white" : "btn-ghost"
+        }`}
+        onClick={() => onSidebarToggle("watchlist")}
+      >
+        Watchlist <FaHeart />
+      </button>
+
+      {/* Likes button — bg-[#be9859] (gold) when active, btn-ghost when inactive */}
+      <button
+        className={`btn mr-2 gap-2 ${
+          sidebarView === "liked" ? "bg-[#be9859] text-white" : "btn-ghost"
+        }`}
+        onClick={() => onSidebarToggle("liked")}
+      >
+        Likes <FaThumbsUp />
+      </button>
+
+      {/* Login/logout dropdown */}
       <Authenticator />
     </div>
   );
 }
-
