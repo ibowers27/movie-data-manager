@@ -1,3 +1,5 @@
+
+import React, { useRef } from "react";
 import { FaThumbsUp, FaThumbsDown, FaHeart, FaRegHeart } from "react-icons/fa";
 
 function MovieCard({
@@ -9,6 +11,26 @@ function MovieCard({
   onToggleLike,
   onToggleDislike,
 }) {
+  const audioYesRef = useRef(null);
+  const audioNoRef = useRef(null);
+
+  const handleLikeClick = (title) => {
+    onToggleLike(title);
+    // play sound yes
+    if (audioYesRef.current) {
+      audioYesRef.current.currentTime = 0;
+      audioYesRef.current.play();
+    }
+  };
+
+  const handleDislikeClick = (title) => {
+    onToggleDislike(title);
+    // play sound no
+    if (audioNoRef.current) {
+      audioNoRef.current.currentTime = 0;
+      audioNoRef.current.play();
+    }
+  };
   return (
     // border-[#be9859] = gold card frame
     <div className="card bg-base-100 shadow-md hover:shadow-lg transition-shadow duration-200 border-2 border-[#be9859]">
@@ -72,21 +94,37 @@ function MovieCard({
             {/* btn-success (green) when liked, btn-ghost when not */}
             <button
               className={`btn btn-sm ${isLiked ? "btn-success" : "btn-ghost"}`}
-              onClick={() => onToggleLike(movie.title)}
+              onClick={() => handleLikeClick(movie.title)}
               aria-label={isLiked ? "Remove like" : "Like"}
               title={isLiked ? "Remove like" : "Like"}
             >
               <FaThumbsUp />
             </button>
-            {/* bg-[#7f2d31] = dark red when disliked, btn-ghost when not */}
             <button
               className={`btn btn-sm ${isDisliked ? "bg-[#7f2d31] text-white" : "btn-ghost"}`}
-              onClick={() => onToggleDislike(movie.title)}
+              onClick={() => handleDislikeClick(movie.title)}
               aria-label={isDisliked ? "Remove dislike" : "Dislike"}
               title={isDisliked ? "Remove dislike" : "Dislike"}
             >
               <FaThumbsDown />
+            {/* bg-[#7f2d31] = dark red when disliked, btn-ghost when not */}
             </button>
+
+            {/* audio for yes */}
+            <audio
+              ref={audioYesRef}
+              src="/yes.mp3"
+              onEnded={() => { audioYesRef.current.currentTime = 0; }}
+              style={{ display: "none" }}
+            />
+            {/* audio for no */}
+            <audio
+              ref={audioNoRef}
+              src="/no.mp3"
+              onEnded={() => { audioNoRef.current.currentTime = 0; }}
+              style={{ display: "none" }}
+            />
+            
           </div>
         </div>
       </div>
