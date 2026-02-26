@@ -84,19 +84,20 @@ const App = () => {
         </main>
 
         {/* Sidebar — only renders when a view is selected */}
-        {sidebarView && (
-          <BodyPiece
-            sidebarView={sidebarView}
-            watchlist={watchlist}
-            liked={liked}
-            onRemoveWatchlist={toggleWatchlist}
-            onRemoveLike={toggleLike}
-          />
-        )}
+              {sidebarView && (
+                <BodyPiece
+                  sidebarView={sidebarView}
+                  watchlist={watchlist}
+                  liked={liked}
+                  onRemoveWatchlist={toggleWatchlist}
+                  onRemoveLike={toggleLike}
+                  movies={movies}
+                />
+              )}
       </div>
 
       {/* Footer goes here*/}
-
+      <Footer />
       {/* Toast notifications (react-toastify) */}
       <ToastContainer position="bottom-right" autoClose={2000} />
     </div>
