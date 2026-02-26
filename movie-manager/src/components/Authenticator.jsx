@@ -42,6 +42,11 @@ export default function Authenticator() {
     setUsername("");
     setPassword("");
     setDisplayName("");
+    //stop and restart audio
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
   }
 
   let content;
