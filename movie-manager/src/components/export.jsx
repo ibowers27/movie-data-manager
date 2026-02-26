@@ -1,8 +1,14 @@
+import { useState } from "react";
+
 export default function ExportCSV({ movies = [], watchlist = [], liked = [], list = "watchlist" }) {
+  // loading state for button
+  const [loading, setLoading] = useState(false);
+
   // decide which array of titles we're exporting
   const titles = list === "liked" ? liked : watchlist;
   // look up the full movie object for each title; filter out any missing
   const rows = titles.map(t => movies.find(m => m.title === t)).filter(Boolean);
+
   // fctn to create csv and trigger download on btn click
   function downloadCSV() {
     if (!rows.length) return; // nothing to export
@@ -31,12 +37,22 @@ export default function ExportCSV({ movies = [], watchlist = [], liked = [], lis
     URL.revokeObjectURL(url);
   }
 
+  // click handler to simulate loading
+  function handleClick() {
+    setLoading(true);
+    setTimeout(() => {
+      downloadCSV();
+      setLoading(false);
+    }, 1500);
+  }
+
   return (
     <button
-      className="btn bg-[#7f2d31] text-white relative z-10"
-      onClick={downloadCSV}
+      className="btn bg-[#7f2d31] text-white relative z-10 flex items-center"
+      onClick={handleClick}
     >
       Export {list} CSV
+      {loading && <span className="loading loading-spinner loading-md ml-2"></span>}
     </button>
   );
 }
