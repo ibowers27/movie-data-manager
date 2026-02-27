@@ -1,5 +1,16 @@
 # mini-project-04
 
+header/navbar
+
+daisyui: 
+authenticator: google, username, password logo buttons
+displaymanager: swap button
+navbar: navbar layout
+
+authenticator uses the useEffect hook for userinput on name and password
+
+likes/dislikes: contain audio 
+
 ## Spring 2026
 
 ### Topic:
