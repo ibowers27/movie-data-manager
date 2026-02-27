@@ -5,7 +5,7 @@ function WatchlistPanel({ items, onRemove, allMovies }) {
   return (
     <section>
       <h2 className="text-xl font-bold mb-2 text-base-content">Watchlist</h2>
-      <div className="h-96 overflow-y-auto bg-base-100 rounded-lg shadow p-2 flex flex-col gap-2">
+      <div className="h-125 overflow-y-auto bg-base-100 rounded-lg shadow p-2 flex flex-col gap-2">
         {items.length === 0 ? (
           <div className="text-base-content/50 text-center py-8">
             No movies watchlisted yet
@@ -38,7 +38,7 @@ function LikedPanel({ items, onRemove, allMovies }) {
   return (
     <section>
       <h2 className="text-xl font-bold mb-2 text-base-content">Liked Movies</h2>
-      <div className="h-96 overflow-y-auto bg-base-100 rounded-lg shadow p-2 flex flex-col gap-2">
+      <div className="h-125 overflow-y-auto bg-base-100 rounded-lg shadow p-2 flex flex-col gap-2">
         {items.length === 0 ? (
           <div className="text-base-content/50 text-center py-8">
             No liked movies yet
