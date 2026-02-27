@@ -6,7 +6,7 @@ Teammates: Ivy Bowers, Thien Ong, Angelo Morelli
 This website is a personal movie manager made with Vite, React, and JavaScript. Minimal CSS is used, as our goal was to approach the project from a Utility-First perspective using TailwindCSS and DaisyUI. 
 
 ## Live Link:
-here
+https://goldenreel.netlify.app/
 
 ### Major Sections in the page:
 - Component-based implementation (authenticator, body, displaymanager, export, filterbar, footer, header, moviecard, movielist, navbar) to keep App.jsx as clean as possible.
