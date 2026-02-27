@@ -1,4 +1,4 @@
-# Golden List (movie manager)
+# Golden Reel (movie manager)
 
 ###
 Teammates: Ivy Bowers, Thien Ong, Angelo Morelli
