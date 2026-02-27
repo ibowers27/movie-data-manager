@@ -11,7 +11,7 @@ import useMovieFilters from "./hooks/MovieFilters";
 
 // Components
 import Header from "./components/header";
-import FilterBar from "./components/Filterbar";
+import FilterBar from "./components/FilterBar";
 import MovieList from "./components/MovieList";
 import BodyPiece from "./components/body";
 import Footer from "./components/footer";

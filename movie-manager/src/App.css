@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @plugin "daisyui";
-@tailwind utilities;
 
 /* Fixed navbar at top */
 .site-navbar {
